@@ -39,6 +39,7 @@
     WWW:   http://www.iki.fi/~vpmakine
 */
 
+#include <algorithm> 
 #include "graphobject.h"
 
 static void draw_edge(PostScript&, Vertex&, Vertex&, Emblem&, Arc&, bool);
@@ -53,7 +54,7 @@ GraphObject::print_links(PostScript& ps, map<string, Vertex>& vertices,
   char delim = delimiter;
   if(delim == '\0') delim = ' ';
 
-  sort(edges.begin(), edges.end(), CompareEdge());
+  std::sort(edges.begin(), edges.end(), CompareEdge());
   for(i = 0; i < edges.size(); i++) {
     string head = edges[i].head;
     string tail = edges[i].tail;

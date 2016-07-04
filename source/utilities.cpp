@@ -39,6 +39,7 @@
     WWW:   http://www.iki.fi/~vpmakine
 */
 
+#include <algorithm> 
 #include "utilities.h"
 
 using namespace std;
@@ -68,7 +69,7 @@ sort(vector<float>& v) {
     values[k].f = v[k];
     values[k].i = k;
   }
-  sort(values.begin(), values.end(), CompareFloatInt());  
+  std::sort(values.begin(), values.end(), CompareFloatInt());  
   for(k = 0; k < v.size(); k++)
     indices[k] = values[k].i;
 
